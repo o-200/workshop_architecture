@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '>= 8.0.1'
 gem 'puma', '>= 6.5.0'
+gem "mongoid", "~> 9.0"
 
 # Базы данных
 gem 'pg'
@@ -33,7 +34,7 @@ gem 'devise'
 gem "alba", "~> 3.5"
 
 # pagination
-gem "pagy", "~> 9.3"
+gem "kaminari-mongoid", "~> 1.0"
 
 group :development, :test do
   gem 'bundler-audit'
@@ -58,3 +59,5 @@ end
 group :development do
   gem 'web-console'
 end
+
+
