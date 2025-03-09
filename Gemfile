@@ -29,6 +29,12 @@ gem 'activeadmin'
 gem 'activeadmin_addons'
 gem 'devise'
 
+# serializer
+gem "alba", "~> 3.5"
+
+# pagination
+gem "pagy", "~> 9.3"
+
 group :development, :test do
   gem 'bundler-audit'
   gem 'capybara'
