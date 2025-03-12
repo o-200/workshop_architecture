@@ -6,6 +6,21 @@ services:
       POSTGRES_PASSWORD: 'postgres'
     volumes:
       - db:/var/lib/postgresql/data
+      - ~/.bundle:/usr/local/bundle
+
+  mongodb:
+    image: mongodb/mongodb-community-server:7.0.7-ubi8
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: 'mongo_user'
+      MONGO_INITDB_ROOT_PASSWORD: 'mongo_password'
+      MONGO_INITDB_DATABASE: 'mongodb'
+    volumes:
+      - mongodb:/data/db
+
   web:
     tty: true
     stdin_open: true
@@ -27,11 +42,17 @@ services:
       - "8080:3000"
     depends_on:
       - db
+      - mongodb
     environment:
       RAILS_LOG_TO_STDOUT: 'yes'
       PAGER: 'more'
       POSTGRES_HOST: 'db'
       POSTGRES_USER: 'postgres'
       POSTGRES_PASSWORD: 'postgres'
+      MONGO_HOST: 'mongodb'
+      MONGO_USER: 'mongo_user'
+      MONGO_PASSWORD: 'mongo_password'
+
 volumes:
   db:
+  mongodb:

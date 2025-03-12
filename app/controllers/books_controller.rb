@@ -1,8 +1,8 @@
 class BooksController < ApplicationController
   def index
-    page  = params[:page] || 1
+    page  = params[:page] || 0
     count = params[:count] || Settings.app.items_per_page
-    _, books = pagy(Book, page: page, limit: count)
+    books = BookDocument.page(page).per(count)
 
     render json: BookSerializer.new(books).serialize
   end
