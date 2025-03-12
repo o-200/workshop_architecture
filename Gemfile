@@ -58,3 +58,5 @@ end
 group :development do
   gem 'web-console'
 end
+
+gem "karafka", "~> 2.4"
