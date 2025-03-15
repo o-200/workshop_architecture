@@ -213,6 +213,19 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
+    karafka (2.4.17)
+      base64 (~> 0.2)
+      karafka-core (>= 2.4.4, < 2.5.0)
+      karafka-rdkafka (>= 0.17.2)
+      waterdrop (>= 2.7.3, < 3.0.0)
+      zeitwerk (~> 2.3)
+    karafka-core (2.4.9)
+      karafka-rdkafka (>= 0.17.6, < 0.19.0)
+      logger (>= 1.6.0)
+    karafka-rdkafka (0.18.1)
+      ffi (~> 1.15)
+      mini_portile2 (~> 2.6)
+      rake (> 12)
     kaminari-mongoid (1.0.2)
       kaminari-core (~> 1.0)
       mongoid
@@ -432,6 +445,10 @@ GEM
     useragent (0.16.10)
     warden (1.2.9)
       rack (>= 2.0.9)
+    waterdrop (2.8.2)
+      karafka-core (>= 2.4.3, < 3.0.0)
+      karafka-rdkafka (>= 0.17.5)
+      zeitwerk (~> 2.3)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -473,6 +490,8 @@ DEPENDENCIES
   factory_bot_rails
   fasterer
   ffaker
+  karafka (~> 2.4)
+  pagy (~> 9.3)
   kaminari-mongoid (~> 1.0)
   mongoid (~> 9.0)
   parallel
